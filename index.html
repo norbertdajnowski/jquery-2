@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery/JSON Task 2</title>
+
+		<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+
+		<div class="jquery-write">
+			<h1>Bike Data</h1>
+			<p id="id"></p>
+			<p id="manufacturer"></p>
+			<p id="model"></p>
+		</div>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+	        $.getJSON("recent.json", function(data){
+	            $("#id").text("Bike ID: " + data.bike_id);
+	            $("#manufacturer").text("Bike Manufacturer: " + data.manufacturer);
+	            $("#model").text("Bike Model: " + data.model);
+
+	     }).fail(function(){
+	            console.log("An error has occurred.");
+	        });
+    	});
+
+
+	</script>
+	</body>
+</html>
