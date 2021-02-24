@@ -43,13 +43,13 @@
 	            console.log("An error has occurred.");
 	        });
 
-	     	$.getJSON('recent-array.json', function(data) {
+	     	$.getJSON("recent-array.json", function(data) {
            
 		     	$.each(data, function (index, item) {
 			    	var eachrow = "<tr>"
-			                 + "<td>" + item[1] + "</td>"
-			                 + "<td>" + item[2] + "</td>"
-			                 + "<td>" + item[3] + "</td>"
+			                 + "<td>" + item.bike_id + "</td>"
+			                 + "<td>" + item.manufacturer + "</td>"
+			                 + "<td>" + item.model + "</td>"
 			                 + "</tr>";
 			    	$('#tbody').append(eachrow);
 				});
