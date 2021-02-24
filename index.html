@@ -15,17 +15,47 @@
 			<p id="model"></p>
 		</div>
 
+		<div class="jquery-write">
+			<table style="width: 100%">
+		    	<thead>
+		        	<tr>
+		               <th>Bike ID</th>
+		               <th>Manufacturer</th>
+		               <th>Model</th>
+		            </tr>
+		     	</thead>
+		    <tbody id="tbody">
+		    	
+		    </tbody>
+			</table>		
+		</div>
+
 	<script type="text/javascript">
 
 		$(document).ready(function(){
+
 	        $.getJSON("recent.json", function(data){
 	            $("#id").text("Bike ID: " + data.bike_id);
 	            $("#manufacturer").text("Bike Manufacturer: " + data.manufacturer);
 	            $("#model").text("Bike Model: " + data.model);
 
-	     }).fail(function(){
+	     	}).fail(function(){
 	            console.log("An error has occurred.");
 	        });
+
+	     	$.getJSON('recent-array.json', function(data) {
+           
+		     	$.each(data, function (index, item) {
+			    	var eachrow = "<tr>"
+			                 + "<td>" + item[1] + "</td>"
+			                 + "<td>" + item[2] + "</td>"
+			                 + "<td>" + item[3] + "</td>"
+			                 + "</tr>";
+			    	$('#tbody').append(eachrow);
+				});
+
+			});
+
     	});
 
 
